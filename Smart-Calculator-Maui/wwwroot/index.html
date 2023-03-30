@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Smart-Calculator-Maui</title>
+    <base href="/" />
+    <link href="css/app.css" rel="stylesheet" />
+    <link href="Smart-Calculator-Maui.styles.css" rel="stylesheet" />
+
+    <script src="scripts/theme.js" defer></script>
+</head>
+
+<body>
+
+    <div class="status-bar-safe-area"></div>
+
+    <div class="container">
+        <section class="heading-section">
+            <h1>Smart Calculator</h1>
+            <!-- light and dark mode toggler -->
+            <div>
+                <b>Theme:</b>
+                <select id="themeSelect">
+                    <option value="system">System</option>
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- calculator body -->
+        <div class="calculator">
+            <!-- calculator display -->
+            <div class="input-area">
+                <input type="text" id="topDisplay" readonly>
+                <input type="text" id="display" readonly>
+            </div>
+
+            <!-- calculator buttons -->
+            <div class="button-area">
+                <span id="percentBut" class="input-button">%</span>
+                <span id="squareBut" class="input-button">x<sup>2</sup></span>
+                <span id="del" class="input-button" title="Press(Delete)">DEL</span>
+                <span id="ac" class="input-button" title="Press(Backspace)">AC</span>
+                <span id="posNegToggle" class="input-button"><sup>+</sup>/<sub>−</sub></span>
+                <span id="sqrtBut" class="input-button">√x</span>
+                <span id="oneDivided" class="input-button"><sup>1</sup>/<sub>x</sub></span>
+                <span class="operationBut input-button" data-operation="/">÷</span>
+                <span class="numberButton input-button">7</span>
+                <span class="numberButton input-button">8</span>
+                <span class="numberButton input-button">9</span>
+                <span class="operationBut input-button" data-operation="*">×</span>
+                <span class="numberButton input-button">4</span>
+                <span class="numberButton input-button">5</span>
+                <span class="numberButton input-button">6</span>
+                <span class="operationBut input-button" data-operation="-">−</span>
+                <span class="numberButton input-button">1</span>
+                <span class="numberButton input-button">2</span>
+                <span class="numberButton input-button">3</span>
+                <span class="operationBut input-button" data-operation="+">+</span>
+                <span class="numberButton input-button">0</span>
+                <span id="dot" class="input-button">.</span>
+                <span id="ansBut" class="input-button" title="Press(Arrow UP)">ANS</span>
+                <span id="equalBut" class="input-button">=</span>
+            </div>
+        </div>
+
+        <!-- signature of the maker of this calculator -->
+        <footer>Calculator made by <a href="https://sr-tamim.vercel.app/" target="_blank">SR TAMIM</a></footer>
+    </div>
+
+
+    <div id="app" style="display:none">Loading...</div>
+
+    <div id="blazor-error-ui" style="display:none">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+
+    <script src="_framework/blazor.webview.js" autostart="false"></script>
+
+    <!-- math js library -->
+    <script src="scripts/math.js"></script>
+    <!-- main javascript file of this calculator -->
+    <script src="scripts/script.js"></script>
+    <script>
+        // theme toggler event listener
+        document.getElementById('themeSelect').addEventListener('change', (e) => {
+            const theme = e.target.value
+            changeTheme(theme)
+        })
+        document.getElementById('themeSelect').value = localStorage.getItem('theme')
+    </script>
+
+</body>
+
+</html>
