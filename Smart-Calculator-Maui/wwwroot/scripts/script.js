@@ -1,16 +1,4 @@
 
-// little message for new users
-if (localStorage.getItem('newUser') == null) {
-    if (window.innerWidth > 768) {
-        window.alert('You can use your computer keyboard for giving input to this calculator');
-    } else {
-        window.alert('I guess you are new here. At last you are in the right place!')
-    }
-    localStorage.setItem('newUser', false);
-}
-
-
-
 // select elements of the html file
 const screen = document.getElementById('display');
 const topScreen = document.getElementById('topDisplay');
